@@ -49,6 +49,8 @@ class Home extends Component {
     const { products } = this.state;
     const { amount } = this.props;
 
+    console.tron.log(products);
+
     return (
       <Container>
         <ProductList
