@@ -12,6 +12,7 @@ export const Container = styled.View`
 export const ProductList = styled.FlatList.attrs({
   showsHorizontalScrollIndicator: false,
 })`
+  max-height: 450px;
   margin-top: 20px;
 `;
 export const CardWrapper = styled.View``;

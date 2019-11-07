@@ -2,12 +2,14 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TouchableWithoutFeedback } from 'react-native';
 
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import logo from '../../assets/logo.png';
 import { Wrapper, Logo, Cart, ItemCount } from './styles';
 
-function Header({ navigation, cartSize }) {
+export default function Header({ navigation }) {
+  const cartSize = useSelector(state => state.cart.length);
+
   return (
     <Wrapper>
       <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
@@ -22,10 +24,3 @@ function Header({ navigation, cartSize }) {
     </Wrapper>
   );
 }
-
-export default connect(
-  state => ({
-    cartSize: state.cart.length,
-  }),
-  null
-)(Header);
