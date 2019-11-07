@@ -1,67 +1,58 @@
 import styled from 'styled-components/native';
+import { darken } from 'polished';
 
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
-  flex: 1;
-  padding: 30px;
+  background: #191920;
 `;
 
 export const ProductList = styled.FlatList.attrs({
   showsHorizontalScrollIndicator: false,
-})`
-  margin-top: 20px;
-`;
+})``;
 
 export const ItemContainer = styled.View`
-  align-items: center;
-  margin: 0 20px 30px;
-  background: #ffffff;
-  margin-bottom: 300px;
-  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 4px;
+  width: 220px;
 `;
 export const ProductImage = styled.Image`
-  width: 300px;
-  height: 300px;
-  border-radius: 32px;
-  background: #ffffff;
-  max-height: 300px;
-  max-width: 300px;
+  width: 200px;
+  height: 200px;
 `;
 export const ProductTitle = styled.Text`
   font-size: 16px;
-  color: #333;
-  font-weight: bold;
-  margin-top: 4px;
-  text-align: center;
 `;
 export const ProductPrice = styled.Text`
-  font-size: 14px;
-  color: #333;
+  margin: 14px 0px;
+  font-size: 20px;
+  margin-bottom: 14px;
   font-weight: bold;
-  margin-top: 4px;
-  text-align: center;
 `;
+
 export const AddProductButton = styled(RectButton)`
-  flex: 1;
-  flex-direction: row;
-  margin: 8px 8px;
-  align-self: stretch;
-  border-radius: 4px;
   background: #7159c1;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  height: 20px;
-  overflow: hidden;
+  border-radius: 4px;
+  margin-top: auto;
 `;
 
 export const BasketIconContainer = styled.View`
   flex-direction: row;
+  background: ${darken(0.03, '#7159c1')};
   align-items: center;
-  margin: 15px;
+  padding: 12px;
 `;
-export const IconText = styled.Text``;
+export const IconText = styled.Text`
+  color: #fff;
+  margin: 0px 4px 0px 10px;
+`;
 export const ButtonText = styled.Text`
-  font-size: 25px;
-  margin: 0 15px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  flex: 1;
 `;

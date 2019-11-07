@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import './config/ReactotronConfig';
 
 import { Provider } from 'react-redux';
+import NavigationService from './services/navigation';
 
 import Routes from './routes';
 import store from './store';
@@ -13,7 +14,9 @@ export default function App() {
     <>
       <Provider store={store}>
         <StatusBar barStyle="light-content" />
-        <Routes />
+        <Routes
+          ref={navigatorRef => NavigationService.setNavigator(navigatorRef)}
+        />
       </Provider>
     </>
   );

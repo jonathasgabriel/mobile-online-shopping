@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.SafeAreaView`
+  height: 120px;
   flex-direction: row;
   background: #191920;
   justify-content: space-around;

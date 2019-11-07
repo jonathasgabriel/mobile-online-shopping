@@ -37,34 +37,33 @@ class Home extends Component {
     });
   }
 
-  handleAddProduct = item => {
-    const { navigation } = this.props;
+  handleAddProduct = id => {
+    const { addToCartRequest } = this.props;
 
-    // call saga action to add product
+    addToCartRequest(id);
 
-    navigation.navigate('Cart');
+    // navigation.navigate('Cart', id);
   };
 
   render() {
     const { products } = this.state;
-    // const { amount } = this.props;
+    const { amount } = this.props;
 
     return (
       <Container>
         <ProductList
           data={products}
-          keyExtractor={product => product.id}
+          keyExtractor={product => String(product.id)}
           horizontal
           renderItem={({ item }) => (
-            <ItemContainer>
+            <ItemContainer key={item.id}>
               <ProductImage source={{ uri: item.image }} />
               <ProductTitle>{item.title} </ProductTitle>
               <ProductPrice>{item.formattedPrice}</ProductPrice>
-
-              <AddProductButton onPress={() => this.handleAddProduct(item)}>
+              <AddProductButton onPress={() => this.handleAddProduct(item.id)}>
                 <BasketIconContainer>
                   <Icon name="add-shopping-cart" color="#FFF" size={25} />
-                  <IconText>4</IconText>
+                  <IconText>{amount[item.id] || 0}</IconText>
                 </BasketIconContainer>
                 <ButtonText>Add to Cart</ButtonText>
               </AddProductButton>
